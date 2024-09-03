@@ -1,10 +1,12 @@
 # EX01 Developing a Simple Webserver
-## Date:
+
+## Date: 01-09-2024
 
 ## AIM:
 To develop a simple webserver to serve html pages and display the configuration details of laptop.
 
 ## DESIGN STEPS:
+
 ### Step 1: 
 HTML content creation.
 
@@ -22,18 +24,34 @@ Testing the webserver.
 
 ## PROGRAM:
 ```python
+
+import platform
 from http.server import HTTPServer,BaseHTTPRequestHandler
 
+system_name = platform.system()
+node_name = platform.node()
+release = platform.release()
+version = platform.version()
+machine = platform.machine()
+processor = platform.processor()
+
 content='''
-<!doctype html>
-<html>
+<html lang="en">
 <head>
-<title> My Web Server </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My System Configuration</title>
 </head>
 <body>
-<h1>Hello! This is Durgadevi...</h1>
-<h2>Welcome to my first webpage</h2>
-<t><h2> See u soon.....</h2></t>
+    <h1>My System Configuration</h1>
+    <ul>
+        <li>'''+system_name+'''</li>
+        <li>'''+node_name+'''</li>
+        <li>'''+release+'''</li>  
+        <li>'''+version+'''</li>  
+        <li>'''+machine+'''</li>  
+        <li>'''+processor+'''</li>  
+    </ul>
 </body>
 </html>
 '''
@@ -54,10 +72,10 @@ httpd.serve_forever()
 ```
 
 
-## OUTPUT:
-![alt text](<Screenshot 2024-08-17 091505.png>)
-![alt text](<Screenshot 2024-08-17 091729.png>)
 
+## OUTPUT:
+![alt text](<img 1.png>)
+![alt text](<img 2.png>)
 
 ## RESULT:
 The program for implementing simple webserver is executed successfully.
